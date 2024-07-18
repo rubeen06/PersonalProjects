@@ -1,0 +1,42 @@
+<% include partials/_header %>
+
+<div class="container">
+  <div class="row">
+    <!--FORM-->
+    <div class="col-md-5 offset-md-3">
+      <div class="card">
+        <div class="card-body">
+          <form action="/asignaturas/edit/<%= asignatura._id %>" method="post">
+            <h2>Editando la asignatura: <%= asignatura.nombre %></h2>
+            
+            <div class="form-group">
+              <label>Nombre</label>
+              <input class="form-control" type="text" name="nombre" placeholder="Nombre" value="<%= asignatura.nombre %>">
+            </div>
+            <label>Plan de Estudios</label>
+              <div class="form-group">
+                <select name="planEstudios" value="<%= asignatura.planEstudios %>">
+                  <option value="grado" selected>Grado</option>
+                  <option value="master" >Master</option>
+                  <option value="doctorado">Doctorado</option>
+                </select>  
+              </div>
+              <label>Cuatrimestre</label>
+              <div class="form-group">
+                <input class="form-control" type="text" name="cuatrimestre" placeholder="Cuatrimestre" value="<%= asignatura.cuatrimestre %>">
+              </div>
+              <label>Curso</label>
+              <div class="form-group">
+                <input class="form-control" type="text" name="curso" placeholder="Curso" value="<%= asignatura.curso %>">
+              </div>
+            <button class="btn btn-primary" type="submit">
+              Update 
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% include partials/_footer %>
