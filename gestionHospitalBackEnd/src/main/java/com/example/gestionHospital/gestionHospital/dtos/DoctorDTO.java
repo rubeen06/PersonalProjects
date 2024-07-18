@@ -26,6 +26,8 @@ public class DoctorDTO {
 
     private Set<Paciente> pacientes;
 
+    // Getters y setters omitidos para brevedad
+
     public Long getId() {
         return id;
     }
@@ -57,7 +59,7 @@ public class DoctorDTO {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
-    
+
     public String getEspecialidad() {
         return especialidad;
     }
@@ -70,7 +72,7 @@ public class DoctorDTO {
         return enfermeros;
     }
 
-    public void setEnefermeros(Set<Enfermero> enfermeros) {
+    public void setEnfermeros(Set<Enfermero> enfermeros) {
         this.enfermeros = enfermeros;
     }
 
@@ -81,5 +83,4 @@ public class DoctorDTO {
     public void setPacientes(Set<Paciente> pacientes) {
         this.pacientes = pacientes;
     }
-
 }

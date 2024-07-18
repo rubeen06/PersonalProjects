@@ -1,11 +1,14 @@
 package com.example.gestionHospital.gestionHospital.entities;
 
+import java.util.HashSet;
 import java.util.Set;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -26,13 +29,13 @@ public class Doctor {
 
     private String especialidad;
     
-    @OneToMany(mappedBy = "doctor")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "doctor", orphanRemoval = true)
     @JsonManagedReference
-    private Set<Enfermero> enefermeros;
+    private Set<Enfermero> enfermeros= new HashSet<>();
 
-    @OneToMany(mappedBy = "doctor")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "doctor")
     @JsonManagedReference
-    private Set<Paciente> pacientes;
+    private Set<Paciente> pacientes= new HashSet<>();
 
     public Long getId() {
         return id;
@@ -74,12 +77,12 @@ public class Doctor {
         this.especialidad = especialidad;
     }
 
-    public Set<Enfermero> getEnefermeros() {
-        return enefermeros;
+    public Set<Enfermero> getEnfermeros() {
+        return enfermeros;
     }
 
-    public void setEnefermeros(Set<Enfermero> enefermeros) {
-        this.enefermeros = enefermeros;
+    public void setEnfermeros(Set<Enfermero> enfermeros) {
+        this.enfermeros = enfermeros;
     }
 
     public Set<Paciente> getPacientes() {
@@ -89,8 +92,28 @@ public class Doctor {
     public void setPacientes(Set<Paciente> pacientes) {
         this.pacientes = pacientes;
     }
-
     
+    public void addEnfermero(Enfermero enfermero) {
+        this.enfermeros.add(enfermero);
+        enfermero.setDoctor(this);
+    }
+
+    public void addPaciente(Paciente paciente) {
+        this.pacientes.add(paciente);
+        paciente.setDoctor(this);
+    }
+    
+    // Método para eliminar la relación con un enfermero sin eliminar la entidad enfermero
+    public void removeEnfermero(Enfermero enfermero) {
+        this.enfermeros.remove(enfermero);
+        enfermero.setDoctor(null);
+    }
+
+    // Método para eliminar la relación con un paciente sin eliminar la entidad paciente
+    public void removePaciente(Paciente paciente) {
+        this.pacientes.remove(paciente);
+        paciente.setDoctor(null);
+    }
 
     
 }

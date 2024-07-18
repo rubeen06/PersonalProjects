@@ -15,6 +15,7 @@ import jakarta.validation.Valid;
 @RestController
 @RequestMapping("/api/enfermeros")
 @Validated
+@CrossOrigin(origins = "*")
 public class EnfermeroController {
 
     @Autowired

@@ -1,15 +1,39 @@
 package com.example.gestionHospital.gestionHospital.dtos;
 
-import java.util.Set;
+
+import com.example.gestionHospital.gestionHospital.entities.Doctor;
+
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 public class PacienteDTO {
     private Long id;
+
+    @NotNull(message = "DNI es obligatorio")
+    @Size(min = 9, max = 9, message = "DNI debe tener 9 caracteres")
     private String dni;
+
+    @NotNull(message = "Nombre es obligatorio")
+    @Size(min = 2, message = "Nombre debe tener al menos 2 caracteres")
     private String nombre;
+
+    @NotNull(message = "Apellido es obligatorio")
+    @Size(min = 2, message = "Apellido debe tener al menos 2 caracteres")
     private String apellido;
+
+    @NotNull(message = "Diagnóstico es obligatorio")
     private String diagnostico;
-    private Long doctorId;
-    private Set<Long> enfermeroIds;
+
+    private Doctor doctor;
+
+
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
 
     // Getters y Setters
     public Long getId() {
@@ -52,19 +76,4 @@ public class PacienteDTO {
         this.diagnostico = diagnostico;
     }
 
-    public Long getDoctorId() {
-        return doctorId;
-    }
-
-    public void setDoctorId(Long doctorId) {
-        this.doctorId = doctorId;
-    }
-
-    public Set<Long> getEnfermeroIds() {
-        return enfermeroIds;
-    }
-
-    public void setEnfermeroIds(Set<Long> enfermeroIds) {
-        this.enfermeroIds = enfermeroIds;
-    }
 }
