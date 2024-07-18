@@ -1,0 +1,17 @@
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header bg-dark text-white">
+                Paciente ID: {{paciente.id}}
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{paciente.nombre}} {{paciente.apellido}}</h5>
+                <p class="card-text">
+                    DNI: {{paciente?.dni}}<br>
+                    Diagnóstico: {{paciente.diagnostico}}<br>
+                    Doctor: {{paciente.doctor.nombre}} {{paciente.doctor.apellido}}
+                </p>
+            </div>
+        </div>
+    </div>
+</body>

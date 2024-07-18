@@ -1,0 +1,42 @@
+body {
+    background: linear-gradient(270deg,#02ff02, #00ff00, #006400, #228b22, #7ffd02, #1d3000, #adfd00) !important;
+    background-size: 800% 800% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+
+
+.btn-round {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Añade sombra al botón */
+}
+
+.btn-primary {
+    background-color: #8ac902;
+    border-color: #ffffff;
+}
+
+.fas.fa-plus {
+    color: white;
+}
+
+.btn-square {
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    width: 50px;
+    height: 50px;
+}
+
+.table {
+    border-radius: 20px; /* Añade bordes redondeados */
+    overflow: hidden;
+}

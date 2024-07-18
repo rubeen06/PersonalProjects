@@ -1,0 +1,54 @@
+<body>
+    <div class="container py-5">
+        <div class="card">
+            <div class="card-header bg-dark text-white">
+                <h2 class="mb-4">Enfermeros</h2>
+            </div>
+            <div class="card-body">
+                <div class="text-end mb-3">
+                    <button class="btn btn-primary" routerLink="/crearEnfermero">
+                        <i class="fas fa-plus"></i> Agregar Enfermero
+                    </button>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>ID</th>
+                                <th>DNI</th>
+                                <th>Nombre</th>
+                                <th>Apellidos</th>
+                                <th>Turno</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for(enfermero of enfermeros; track enfermero.id) {
+                            <tr>
+                                <td>{{enfermero.id}}</td>
+                                <td>{{enfermero.dni}}</td>
+                                <td>{{enfermero.nombre}}</td>
+                                <td>{{enfermero.apellido}}</td>
+                                <td>{{enfermero.turno}}</td>
+                                <td>
+                                    <div class="d-flex justify-content-start">
+                                        <button type="button" class="btn btn-success me-2" [routerLink]="[enfermero.id]">
+                                            <i class="fas fa-info-circle"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-warning me-2" [routerLink]="['/editarEnfermero', enfermero.id]">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-danger" (click)="deleteEnfermero(enfermero)">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

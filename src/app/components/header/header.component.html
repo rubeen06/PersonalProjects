@@ -1,0 +1,17 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <span class="navbar-brand mb-0 h1">Gestión Hospitalaria</span>
+      <button class="navbar-toggler" type="button" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleNavbar()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" [class.show]="!isNavbarCollapsed" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-item nav-link" routerLink="doctores" (click)="closeNavbar()">Doctores</a>
+          <a class="nav-item nav-link" routerLink="/pacientes" (click)="closeNavbar()">Pacientes</a>
+          <a class="nav-item nav-link" routerLink="/enfermeros" (click)="closeNavbar()">Enfermeros</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

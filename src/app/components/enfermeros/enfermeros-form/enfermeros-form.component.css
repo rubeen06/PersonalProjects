@@ -1,0 +1,47 @@
+body {
+    background: linear-gradient(270deg, #000080, #0000cd, #008b8b, #20b2aa, #7fffd4) !important;
+    background-size: 800% 800% !important;
+    -webkit-animation: AnimationName 30s ease infinite !important;
+    -moz-animation: AnimationName 30s ease infinite !important;
+    animation: AnimationName 30s ease infinite !important;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationName { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+
+/* Estilos personalizados para la card y formulario */
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-body {
+    padding: 2rem;
+  }
+  
+  .form-control {
+    border-radius: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .card-body {
+      padding: 1.5rem;
+    }
+  }
+  
+  
