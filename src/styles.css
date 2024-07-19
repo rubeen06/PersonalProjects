@@ -1,9 +1,0 @@
-@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-
-.body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
